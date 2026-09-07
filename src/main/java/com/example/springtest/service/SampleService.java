@@ -3,14 +3,29 @@ package com.example.springtest.service;
 import com.example.springtest.bean.SampleBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 @Service
+//For Single PropertySource
+//@PropertySource("classpath:custom.properties")
+@PropertySources({
+        @PropertySource("classpath:custom.properties"),
+        @PropertySource("classpath:custom2.properties"),
+})
+
 public class SampleService {
 
     private SampleBean sampleBean;
     private Environment environment;
+
+    @Value("${my.sample}")
+    private String myCustomProperties;
+    @Value("${my.sample2}")
+    private String mySecondCustomProperties;
 
 //    One constructor → Spring automatically uses it for constructor injection. @Autowired is not required.
     public SampleService(
@@ -35,6 +50,12 @@ public class SampleService {
 
     public String getCustomProperties(){
         return "The Custom Properties is: "+ environment.getProperty("my.custom.properties");
+    }
+    public String getMyCustomProperties(){
+        return myCustomProperties;
+    }
+    public String getMySecondCustomProperties(){
+        return mySecondCustomProperties;
     }
 
     public String saysSomething(){

@@ -18,5 +18,9 @@ public class SpringtestApplication {
 		System.out.println(sampleService.getJavaVersion());
 		System.out.println(sampleService.getOSVersion());
 		System.out.println(sampleService.getCustomProperties());
+		System.out.println(sampleService.getMyCustomProperties());
+		System.out.println(sampleService.getMySecondCustomProperties());
+
+
 	}
 }
