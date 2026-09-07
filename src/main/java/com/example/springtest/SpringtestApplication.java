@@ -14,6 +14,9 @@ public class SpringtestApplication {
 		SampleService sampleService = context.getBean(SampleService.class);
 
 		System.out.println(sampleService.saysSomething());
-	}
 
+		System.out.println(sampleService.getJavaVersion());
+		System.out.println(sampleService.getOSVersion());
+		System.out.println(sampleService.getCustomProperties());
+	}
 }
