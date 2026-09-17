@@ -21,6 +21,8 @@ public class SpringtestApplication {
 		System.out.println(sampleService.getMyCustomProperties());
 		System.out.println(sampleService.getMySecondCustomProperties());
 
+		System.out.println(sampleService.getCurrentEnvironment());
+
 
 	}
 }

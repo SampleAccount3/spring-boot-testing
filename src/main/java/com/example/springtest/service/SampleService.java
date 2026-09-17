@@ -22,6 +22,8 @@ public class SampleService {
     private SampleBean sampleBean;
     private Environment environment;
 
+    private String currentEnvironment;
+
     @Value("${my.sample}")
     private String myCustomProperties;
     @Value("${my.sample2}")
@@ -60,5 +62,10 @@ public class SampleService {
 
     public String saysSomething(){
         return "The Sample bean Says: " + sampleBean.getDetails();
+    }
+
+
+    public String getCurrentEnvironment() {
+        return environment.getProperty("env");
     }
 }
